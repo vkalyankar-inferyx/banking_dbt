@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: banking
+    database: banking_db
+    schema: public
+    tables:
+      - name: customers
+      - name: accounts
