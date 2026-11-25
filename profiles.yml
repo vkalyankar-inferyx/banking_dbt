@@ -1,17 +1,15 @@
-# Project-local dbt profiles (used when DBT_PROFILES_DIR points at this project).
-# Commit env_var placeholders only — never commit real passwords.
-# Set secrets on the crawler/host environment, e.g.:
-#   export DBT_USER=...
-#   export DBT_PASSWORD=...
+# TEMPORARY: hardcoded local values for crawler testing.
+# Do NOT push this file to a public/shared remote with real passwords.
+# Prefer env_var(...) before sharing the repo.
 banking_dbt:
   target: dev
   outputs:
     dev:
       type: postgres
-      host: "{{ env_var('DBT_HOST', 'localhost') }}"
-      port: "{{ env_var('DBT_PORT', '5432') }}"
-      user: "{{ env_var('DBT_USER') }}"
-      pass: "{{ env_var('DBT_PASSWORD') }}"
-      dbname: "{{ env_var('DBT_DBNAME', 'banking_db') }}"
-      schema: "{{ env_var('DBT_SCHEMA', 'dbt_poc') }}"
+      host: localhost
+      user: datahub_user
+      pass: "DataHub@123"
+      port: 5432
+      dbname: banking_db
+      schema: dbt_poc
       threads: 1
